@@ -1,5 +1,20 @@
+transaction AHOC associates program ATMN249, ATMN249 calls ATMN145, ATMN145 calls ATMX002 and starts transaction ADTD, ATMX002 starts transaction XDTD. Can u give a transcation call path from AHOC?
+
 
 ATMN92 calls ATMN30 and ATMN41, ATMN30 calls ATMN43, ATMN91 AND starts transaction ADTD. Program ATMN43 calls ATMN145. call u give a program call path from ATMN92 to ATMN145?
+
+Based on the information provided, the transaction call path from AHOC can be traced as follows:
+
+Transaction AHOC associates with program ATMN249.
+Program ATMN249 calls program ATMN145.
+Program ATMN145 starts transaction ADTD.
+Program ATMN145 calls program ATMX002.
+Program ATMX002 starts transaction XDTD.
+Therefore, the transaction call path from AHOC is:
+
+AHOC → ATMN249 → ATMN145 → ADTD → ATMX002 → XDTD
+
+This path represents the sequence of transactions and programs that are called or started from the initial transaction AHOC.
 
 
 def extract_lines_with_string(file_path, target_string):  
