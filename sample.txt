@@ -1,3 +1,57 @@
+import os  
+import zipfile  
+  
+def get_all_files_with_path(folder_path):  
+    """  
+    Get all files with their full paths in the specified folder.  
+  
+    :param folder_path: The path to the folder you want to search.  
+    :return: A list of tuples containing the full path and filename for each file.  
+    """  
+    all_files = []  
+  
+    # Walk through the directory and its subdirectories  
+    for root, dirs, files in os.walk(folder_path):  
+        for file in files:  
+            # Construct the full path for each file  
+            full_path = os.path.join(root, file)  
+            all_files.append((full_path, file))  
+  
+    return all_files  
+  
+def unzip_file(zip_path, extract_to):  
+    """  
+    Unzip a ZIP file to the specified directory.  
+  
+    :param zip_path: The full path to the ZIP file.  
+    :param extract_to: The directory where the ZIP file should be extracted.  
+    """  
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:  
+        zip_ref.extractall(extract_to)  
+    print(f"ZIP file {zip_path} has been extracted to {extract_to}")  
+  
+# Example usage:  
+folder_to_search = '/path/to/your/folder'  # Replace with the actual folder path  
+zip_file_path = '/path/to/your/zipfile.zip'  # Replace with the actual ZIP file path  
+extract_to_path = '/path/to/extract'  # Replace with the path where you want to extract the ZIP file  
+  
+# Get all files with full paths  
+files_with_paths = get_all_files_with_path(folder_to_search)  
+  
+# Print the full paths and filenames  
+for full_path, filename in files_with_paths:  
+    print(f"Full Path: {full_path}")  
+    print(f"Filename: {filename}")  
+    print("-" * 40)  # Separate the output with a line  
+  
+# Unzip the ZIP file  
+unzip_file(zip_file_path, extract_to_path)
+
+
+
+
+
+
 transaction AHOC associates program ATMN249, ATMN249 calls ATMN145, ATMN145 calls ATMX002 and starts transaction ADTD, ATMX002 starts transaction XDTD. Can u give a transcation call path from AHOC?
 
 
